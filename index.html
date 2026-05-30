@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador de Palabras</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <style type="text/tailwindcss">
+      @import "tailwindcss";
+      @layer base {
+         :root {
+          @apply text-sm;
+           line-height: 1.5;
+         }
+      }
+    </style>
+</head>
+
+<body class="bg-[url('cat.jpg')] bg-cover bg-center bg-no-repeat min-h-screen flex items-center justify-center p-4">
+     
+    <main class="bg-white p-6 rounded-2xl shadow-xl w-full max-w-md md:max-w-lg transition-all">
+        <h1 class="text-3xl font-bold text-red-600 mb-6 text-center">Contador de Palabras Repetidas</h1>
+        
+        <form id="form-contar" class="space-y-4">
+            <!-- Campo para el Texto Largo -->
+            <div>
+                <label for="input-texto" class="block text-xl font-semibold text-black mb-1">Ingresa tu texto largo:</label>
+                <!-- Un textarea para que sea cómodo ingresar párrafos enteros -->
+                <textarea id="input-texto" rows="4" placeholder="Ej. hola mundo adios mundo" required
+                    class="w-full px-4 py-2 border border-slate-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 text-slate-700 resize-none"></textarea>
+            </div>
+
+            <!-- Campo para la palabra a buscar -->
+            <div>
+                <label for="input-palabra" class="block text-xl font-semibold text-black mb-1">Palabra a buscar:</label>
+                <input type="text" id="input-palabra" placeholder="Ej. mundo" required
+                    class="w-full px-4 py-2 border border-slate-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 text-slate-700">
+            </div>
+
+            <!-- Botón de acción con transiciones suaves -->
+            <button type="submit" 
+                class="w-full bg-yellow-600 hover:bg-indigo-700 text-white font-medium py-2.5 rounded-xl transition duration-200">
+                Contar Repeticiones
+            </button>
+        </form>
+
+        <!-- Contenedor del Resultado (Oculto dinámicamente al inicio con 'hidden') -->
+        <div id="contenedor-resultado" class="mt-6 p-4 bg-slate-50 border border-dashed border-slate-300 rounded-xl hidden transition-all duration-300 ease-out opacity-0 transform translate-y-2">
+            <span class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Resultado del conteo:</span>
+            <p class="text-slate-700 text-base">
+                La palabra se repite: <span id="texto-resultado" class="text-2xl font-bold text-indigo-600 ml-1">0</span> veces.
+            </p>
+        </div>
+    </main>
+
+    <script src="./js/app.js"></script>
+</body>
+</html>
+
